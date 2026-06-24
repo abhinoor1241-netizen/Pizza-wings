@@ -5,220 +5,182 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pizza Wings Amritsar</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
 body{
     margin:0;
-    font-family:Segoe UI;
-    background:#0b0b0b;
-    color:white;
+    font-family:Poppins, sans-serif;
+    background:#f6f7fb;
+    color:#222;
 }
 
-/* HEADER */
-header{
+/* NAV */
+nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 50px;
+    padding:15px 50px;
     background:#111;
-    position:sticky;
-    top:0;
+    color:white;
 }
 
-header h1{
-    color:#ff3b3b;
+nav h1{color:#ff3b3b;}
+
+nav a{
+    color:white;
+    margin:0 12px;
+    text-decoration:none;
+    font-size:14px;
 }
 
-.cart-box{
-    background:#ff3b3b;
-    padding:10px 15px;
-    border-radius:20px;
-    cursor:pointer;
-}
+nav a:hover{color:#ff3b3b;}
 
 /* HERO */
 .hero{
-    height:90vh;
+    height:85vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
-    background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-    url('https://images.unsplash.com/photo-1601924582970-9238bcb495d4') center/cover;
+    background:linear-gradient(135deg,#ff416c,#ff4b2b);
+    color:white;
 }
 
 .hero h2{
     font-size:50px;
+    margin:0;
+}
+
+.hero p{
+    max-width:500px;
 }
 
 .btn{
-    background:#ff3b3b;
-    border:none;
+    margin-top:20px;
     padding:12px 25px;
-    color:white;
+    border:none;
     border-radius:30px;
+    background:white;
+    color:#ff4b2b;
+    font-weight:bold;
     cursor:pointer;
-    margin-top:10px;
+}
+
+/* SECTIONS */
+section{
+    padding:70px 15%;
 }
 
 /* MENU */
-.menu{
+.grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
-    padding:60px;
 }
 
 .card{
-    background:#1c1c1c;
+    background:white;
     padding:20px;
     border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* ORDER */
+.order{
     text-align:center;
-}
-
-.price{
-    color:#ff3b3b;
-    font-size:18px;
-}
-
-.card button{
-    margin-top:10px;
-    padding:10px;
-    border:none;
-    background:#ff3b3b;
-    color:white;
-    border-radius:10px;
-    cursor:pointer;
-}
-
-/* CART */
-.cart-panel{
-    position:fixed;
-    right:-400px;
-    top:0;
-    width:300px;
-    height:100%;
     background:#111;
-    padding:20px;
-    transition:0.4s;
+    color:white;
+    padding:80px 20px;
 }
 
-.cart-panel.active{
-    right:0;
-}
-
-.cart-item{
-    margin:10px 0;
-    border-bottom:1px solid #333;
-    padding-bottom:10px;
-}
-
-.checkout{
+.whatsapp{
     background:#25D366;
-    padding:12px;
-    text-align:center;
-    margin-top:20px;
+    color:white;
+    padding:12px 20px;
+    border:none;
+    border-radius:25px;
     cursor:pointer;
-    border-radius:10px;
+    margin-top:15px;
 }
 
+/* FOOTER */
 footer{
     text-align:center;
     padding:20px;
     background:#000;
-    color:#777;
+    color:#888;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Pizza Wings 🍕</h1>
-    <div class="cart-box" onclick="toggleCart()">
-        Cart 🛒 <span id="count">0</span>
+<nav>
+    <h1>Pizza Wings</h1>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#order">Order</a>
+        <a href="#contact">Contact</a>
     </div>
-</header>
+</nav>
 
-<div class="hero">
-    <h2>Hot & Fresh Pizza</h2>
-    <p>Order now and get fast delivery in Amritsar</p>
+<!-- HERO -->
+<div class="hero" id="home">
+    <h2>Fresh Pizza, Fast Delivery 🍕</h2>
+    <p>Premium taste delivered hot and fresh across Amritsar.</p>
+    <button class="btn" onclick="document.getElementById('menu').scrollIntoView()">Explore Menu</button>
 </div>
 
-<div class="menu">
-    <div class="card">
-        <h3>Cheese Pizza</h3>
-        <p class="price">₹199</p>
-        <button onclick="addItem('Cheese Pizza',199)">Add to Cart</button>
+<!-- MENU -->
+<section id="menu">
+    <h2>Our Menu</h2>
+    <div class="grid">
+        <div class="card">Cheese Pizza<br>₹199</div>
+        <div class="card">Veg Supreme Pizza<br>₹249</div>
+        <div class="card">Chicken Wings<br>₹299</div>
+        <div class="card">Burger Combo<br>₹179</div>
     </div>
+</section>
 
-    <div class="card">
-        <h3>Veggie Pizza</h3>
-        <p class="price">₹249</p>
-        <button onclick="addItem('Veggie Pizza',249)">Add to Cart</button>
-    </div>
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Us</h2>
+    <p>
+        Pizza Wings Amritsar is a premium fast food brand serving fresh pizzas, burgers, and snacks with fast delivery and best quality ingredients.
+    </p>
+</section>
 
-    <div class="card">
-        <h3>Chicken Wings</h3>
-        <p class="price">₹299</p>
-        <button onclick="addItem('Chicken Wings',299)">Add to Cart</button>
-    </div>
+<!-- ORDER -->
+<div class="order" id="order">
+    <h2>Order Now</h2>
+    <p>Tap below to place your order instantly on WhatsApp</p>
+    <button class="whatsapp" onclick="order()">Order on WhatsApp</button>
 </div>
 
-<!-- CART PANEL -->
-<div class="cart-panel" id="cart">
-    <h2>Your Order</h2>
-    <div id="cartItems"></div>
-    <h3>Total: ₹<span id="total">0</span></h3>
-
-    <div class="checkout" onclick="orderWhatsApp()">
-        Order on WhatsApp
-    </div>
-</div>
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact</h2>
+    <p>📍 Amritsar, Punjab</p>
+    <p>📞 +91 98765 XXXXX</p>
+</section>
 
 <footer>
     © 2026 Pizza Wings Amritsar | All Rights Reserved
 </footer>
 
 <script>
-let cart = [];
-
-function addItem(name, price){
-    cart.push({name, price});
-    updateCart();
-}
-
-function updateCart(){
-    document.getElementById("count").innerText = cart.length;
-
-    let items = "";
-    let total = 0;
-
-    cart.forEach((item)=>{
-        items += `<div class='cart-item'>${item.name} - ₹${item.price}</div>`;
-        total += item.price;
-    });
-
-    document.getElementById("cartItems").innerHTML = items;
-    document.getElementById("total").innerText = total;
-}
-
-function toggleCart(){
-    document.getElementById("cart").classList.toggle("active");
-}
-
-function orderWhatsApp(){
-    let msg = "Hello, I want to order:%0A";
-    let total = 0;
-
-    cart.forEach(item=>{
-        msg += "- " + item.name + " ₹" + item.price + "%0A";
-        total += item.price;
-    });
-
-    msg += "%0ATotal: ₹" + total;
-
-    window.open("https://wa.me/919876543210?text=" + msg, "_blank");
+function order(){
+    let msg = "Hello, I want to order from Pizza Wings Amritsar";
+    window.open("https://wa.me/919876543210?text=" + encodeURIComponent(msg));
 }
 </script>
 
